@@ -15,7 +15,7 @@ chromap -i -r ${EntityID}.fa -o ${EntityID}.index 2>&1 | perl -ne '(/number of b
 echo "Index Done."
 
 chromap --preset hic -r ${EntityID}.fa -x ${EntityID}.index \
--t ${Threads} --pairs -o hicaln.pairs \
+-t ${Threads} --pairs -o ${EntityID}.hicaln.pairs \
 -1 ${HiC_R1} \
 -2 ${HiC_R2} \
 > step01.log 2>&1
