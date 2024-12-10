@@ -5,11 +5,9 @@ export PATH=/opt/software/miniconda3/envs/chromap/bin:$PATH
 
 EntityID=$1
 Threads=$2
-Contigs=$3
-HiC_R1=$4
-HiC_R2=$5
+HiC_R1=$3
+HiC_R2=$4
 
-cp $Contigs ${EntityID}.fa
 samtools faidx ${EntityID}.fa
 chromap -i -r ${EntityID}.fa -o ${EntityID}.index 2>&1 | perl -ne '(/number of bases: (\d+)\.$/) && (print "assembly $1\n")'> ${EntityID}.chrom.sizes
 
